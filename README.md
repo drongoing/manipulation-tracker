@@ -43,7 +43,7 @@ This project tracks **turn-by-turn manipulation accumulation** rather than holis
 
 ```bash
 # Clone the repository
-git clone https://github.com/[your-username]/manipulation-tracker
+git clone https://github.com/drongoing/manipulation-tracker
 cd manipulation-tracker
 
 # Create virtual environment
@@ -273,7 +273,7 @@ If you use this framework in your research, please cite:
   year={2026},
   month={January},
   publisher={APART Research AI Manipulation Hackathon},
-  url={https://github.com/[your-username]/manipulation-tracker}
+  url={https://github.com/drongoing/manipulation-tracker}
 }
 ```
 
@@ -310,7 +310,7 @@ Contributions are welcome! Please:
 
 For questions or collaboration inquiries:
 - Open an issue on GitHub
-- Contact: [Your Email]
+- Contact: vibhu.ganesan@gmail.com
 
 ## Safety and Ethical Use
 
