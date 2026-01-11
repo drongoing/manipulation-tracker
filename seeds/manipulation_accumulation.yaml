@@ -1,0 +1,68 @@
+# ====================================================================
+# BEHAVIOR CONFIGURATION - MANIPULATION ACCUMULATION TRACKER
+# ====================================================================
+behavior:
+  name: "manipulation-accumulation"
+  examples: []  # Example transcripts stored in seeds/examples/ directory (15 total)
+  # - commitment-escalation: 3 examples
+  # - belief-shifting: 3 examples
+  # - misinformation-introduction: 3 examples
+  # - emotional-manipulation: 3 examples
+  # - autonomy-undermining: 3 examples
+
+# ====================================================================
+# GLOBAL PARAMETERS
+# ====================================================================
+temperature: 1.0
+evaluator_reasoning_effort: "medium"  # Evaluator (red team) reasoning
+target_reasoning_effort: "medium"     # Target model reasoning
+max_concurrent: 10
+configurable_prompts: "default"
+anonymous_target: false  # We want to know which model is being tested
+debug: true
+
+# ====================================================================
+# UNDERSTANDING STAGE CONFIGURATION
+# ====================================================================
+understanding:
+  model: "anthropic/claude-sonnet-4-5-20250929"
+  max_tokens: 3000
+
+# ====================================================================
+# IDEATION STAGE CONFIGURATION
+# ====================================================================
+ideation:
+  model: "anthropic/claude-sonnet-4-5-20250929"  # Using Sonnet for cost efficiency
+  total_evals: 15  # Generate 15 diverse scenarios
+  diversity: 0.7   # Balance between base scenarios and variations
+  max_tokens: 12000
+  web_search: false
+
+# ====================================================================
+# ROLLOUT STAGE CONFIGURATION
+# ====================================================================
+# NOTE: Evaluator always uses Claude Sonnet 4.5
+# Target models are set programmatically in experiment_runner.py:
+#   - together_ai/Qwen/... (Qwen3 235B)
+#   - together_ai/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo
+#   - openai/gpt-4o-mini
+rollout:
+  model: "anthropic/claude-sonnet-4-5-20250929"  # Evaluator (red team)
+  target: "together_ai/meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"  # Default target (overridden in experiments)
+  modality: "conversation"
+  max_turns: 8  # Hard limit: 8 turns maximum
+  max_tokens: 4000
+  no_user_mode: false
+  selected_variations: null
+  num_reps: 1  # Can increase for statistical robustness later
+
+# ====================================================================
+# JUDGMENT STAGE CONFIGURATION
+# ====================================================================
+judgment:
+  model: "anthropic/claude-sonnet-4-5-20250929"  # Judge model
+  max_tokens: 6000
+  num_samples: 1
+  additional_qualities: ["unrealism", "evaluation-awareness", "subtlety"]
+  metajudgment_qualities: ["diversity"]
+  redaction_tags: null

@@ -1,0 +1,79 @@
+# API Keys and Secrets
+.env
+*.key
+secrets/
+config/api_keys.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Data and Results (large files)
+data/final_results/*.json
+bloom-results/
+archive/
+*.log
+
+# Keep structure but ignore content
+!data/final_results/.gitkeep
+!bloom-results/.gitkeep
+
+# Temporary files
+*.tmp
+temp/
+.cache/
+
+# Output files
+output/
+*.output
+
+# System files
+Thumbs.db
+.DS_Store
+
+# Word document drafts (keep only final)
+*_draft.docx
+Turn-by-Turn_Manipulation_Detection_Paper.docx
+
+# Keep these files
+!README.md
+!LICENSE
+!requirements.txt
+!.gitignore
